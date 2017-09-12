@@ -44,16 +44,16 @@ Here is a preliminary set of assignments with proposed weightings:
     <dt>Final project [70%]<dt>
     <dd>
     Students present an exploration of one of the topics listed in the learning goals, complete with two or more implementations of their chosen abstraction and reflections on each.
-    This would be split into at least one milestone with one of the implementations, and a final peer-reviewed presentation at the end of term.
+    This will be split into at least one milestone with one of the implementations, and a final peer-reviewed presentation at the end of term.
     </dd>
 </dl>
 
 ### Final project rubric
 
-Grading of the project elements would be by presentation to the group.
+Grading of the project elements will be by presentation to the group.
 Assessment would be in terms of the completion of the implementations they provide and their ability to reflect on their progress: what did they achieve, what worked, what didn't, why?
 
-Based on both the presentation and code reviews, grading could be done almost entirely by peers, though attention would be required to make sure grading remains as fair and objective as possible.
+Based on both the presentation and code reviews, grading could be done almost entirely by peers, though attention will be required to make sure grading remains as fair and objective as possible.
 
 ## Interesting links
 
