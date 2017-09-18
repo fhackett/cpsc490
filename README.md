@@ -12,6 +12,8 @@ To help students reach the level of proficiency in C++ required for the course, 
 By the end of the seminar, students should be able to:
     
 - Read, write and debug a variety of programs in C++.
+    - [Hello World, compiled](workshops/Hello-World.md)
+    - [Compiler errors](workshops/Compiler-Errors.md)
 - Reason about the performance, usability and maintainability of programming styles in C++.
 - Have a basic understanding of template metaprogramming.
 - Reason about abstraction using at least the following devices, and assess their situational appropriateness:
