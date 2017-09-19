@@ -2,13 +2,17 @@
 
 This section is designed to introduce you to C++ - we compile the "simplest program", we run it, we decompile it, we figure out what it actually does.
 
+## Learning objectives
+- Introduce ourselves
+- (re)Familiarise ourselves with compilation and assembly language
+
 ## Preparation
 
-- Bring a "Hello World" with you to the meeting (you can get "creative" if you feel like it)
-- Brush up on assembly and systems architecture
+- Bring a "Hello World" with you to the meeting
+- Prepare to read assembly
 - Prepare your semantic analyser
 
-## Rough outline
+## Outline
 
 - Present your "Hello World", let's introduce ourselves
 - For each variation we have:
