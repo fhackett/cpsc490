@@ -7,7 +7,7 @@ Students can expect to question, debate, critique and (re)create the basic const
 The main language will be C++ due to the variety of constructs that can be written in it and the interesting variations in accepted practice that exist within communities that use it.
 To help students reach the level of proficiency in C++ required for the course, workshops will be given on some interesting features and common practices in the language.
 
-## Learning Goals
+## Learning Goals \[[full breakdown](Objectives.md)\]
     
 By the end of the seminar, students should be able to:
     
@@ -60,4 +60,5 @@ Based on both the presentation and code reviews, grading could be done almost en
 ## Interesting links
 
 - [The Godbolt compiler](https://gcc.godbolt.org/) (shows you the assembly output by different compilers given your source code)
+- [Fluent C++](https://www.fluentcpp.com/)
 
