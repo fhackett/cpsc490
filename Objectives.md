@@ -37,6 +37,9 @@ do what one would expect.
     used for
     - To what extent the apparent intention behind code matches what the author intended
     it to do
+- Provide a variety of task examples for a given API
+- Perform basic user research (for example, among classmates) on their code to assess how
+it might be used by others
 
 ## Template Metaprogramming
 
