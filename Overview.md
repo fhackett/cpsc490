@@ -11,7 +11,7 @@ Students can expect to question, debate, critique and (re)create the basic const
 The main language will be C++ due to the variety of constructs that can be written in it and the interesting variations in accepted practice that exist within communities that use it.
 To help students reach the level of proficiency in C++ required for the course, workshops will be given on some interesting features and common practices in the language.
 
-## Learning Goals \[[full breakdown](/objectives/)\]
+## Learning Goals \[[full breakdown]({{ "/objectives/" | relative_url }})\]
     
 By the end of the seminar, students should be able to:
     
