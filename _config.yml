@@ -18,7 +18,7 @@ email: m8z8@ugrad.cs.ubc.ca
 description: > # this means to ignore newlines until "baseurl:"
   This is the website for CPSC 490, a seminar on programming practice.
   The website will be used to post updates on what we've done and what we'll be doing, as well as any links that become relevant.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/cpsc490" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  fhackett
 
