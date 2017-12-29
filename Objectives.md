@@ -1,4 +1,8 @@
-# Learning Goals Breakdown
+---
+layout: page
+title: "Learning Goals Breakdown"
+permalink: /objectives/
+---
 
 ## Read, Write, Debug
 
