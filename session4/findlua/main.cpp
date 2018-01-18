@@ -1,6 +1,8 @@
 #ifdef HAVE_LUA
 
 // necessary or you get mystifying linker errors
+// requires C++ to link any functions declared here using
+// C-style linking (aka. don't mangle the function names)
 extern "C"{
 #include <lua.h>
 #include <lualib.h>
