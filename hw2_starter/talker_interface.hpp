@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 #include <memory>
+#include <string>
 #include <dlfcn.h>
 #include "talker.hpp"
 
