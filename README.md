@@ -391,3 +391,40 @@ There are two parts:
 
 There are no tests, but you are encouraged to write your own. Catch or anything else is acceptable. There is also no build file - writing one may be worthwhile, but is not required. You could refer to previous examples of CMakeLists.txt for inspiration.
 
+## Grading criteria
+
+The course had a mix of assignments and project work.
+70% of the course grade was split evenly between the 3 project milestones, and the other 30% was split evenly between assignments.
+
+### Assignments
+
+After having run the course, I recommend rebalancing the grading scheme so that assignments are weighted more heavily, something like 50/50.
+This should better reflect/reward the learning experience.
+
+There also needs to be a precise late penalty system, since sometimes students need to assess the tradeoffs if working on different things when they cannot complete everything.
+
+The late policy as given was -1/3 of the total mark per day, but given facilitator availability and conversations with students a more gradual per-minute late penalty may have encouraged late submissions as opposed to students just giving up.
+
+### Final project rubric
+
+The spirit of the project is for you to gain experience writing unique code, dealing with unique problems and writing/talking about them.
+
+There will be monthly milestone presentations where you will present and discuss the state of your project. These presentations will be graded. This course spans 3 and a bit months, so there will be 3 milestones, one at the end of each month. The final milestone will also be the final presentation.
+
+The grading scheme for each milestone is as follows (each milestone will be worth 1/3 of the full project, and be out of 10):
+
+- [2 marks] Does the thing perform as described?
+        When presenting your project you should describe what you did and how it works
+        If it is possible to crash your project or make it fail to compile while following that description, that is a problem. i.e state all dependencies and assumptions including OS, compiler type, libraries, usage, etc...
+- [2 marks] Have the goals set in the last milestone been achieved, and if not did you reflect on why?
+        You started with a goal in mind. Did you reach it? To what extent?
+- [2 marks] Did this milestone teach you something useful?
+        If you can convincingly claim you learned something, you will get marks.
+        This ensures the grader judges your project's value to you, not whether it would be interesting to the grader.
+- [2 marks] Is a future direction described, and does it relate meaningfully to current findings and the project brief?
+        Where are you going next? Are you properly referring to your existing work and reflecting on it?
+        It is possible to demonstrate that your current project is a dead end and start something new without losing marks, but you must be clear and convincing.
+- [2 marks] Is the code as readable as similar real-world code?
+        If you can argue that your code would be readable to a group of real-world developers, it is ok. If necessary, you can identify that group or cite a project you're basing your coding style on.
+- [1 mark, bonus] Did this teach someone else something new?
+
