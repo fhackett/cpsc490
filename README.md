@@ -45,8 +45,7 @@ Interesting video links:
      * [Assignment 4](#assignment-4)
   * [Project](#project)
      * [Can it be in a language other than C++?](#can-it-be-in-a-language-other-than-c)
-     * [What kind of thing could I have as a project?](#what-kind-of-thing-could-i-have-as-a-proj
-ect)
+     * [What kind of thing could I have as a project?](#what-kind-of-thing-could-i-have-as-a-project)
   * [Grading criteria](#grading-criteria)
      * [Assignments](#assignments-1)
      * [Project rubric](#project-rubric)
