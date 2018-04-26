@@ -18,12 +18,45 @@ Interesting video links:
 - CppCon 2015: Andrei Alexandrescu “std::allocator...”: https://www.youtube.com/watch?v=LIb3L4vKZ7U
 - CppCon 2014: Mike Acton "Data-Oriented Design and C++: https://www.youtube.com/watch?v=rX0ItVEVjHc
 
+## Table of Contents
+
+  * [Topics](#topics)
+     * [Hello World dismantled](#hello-world-dismantled)
+     * [Build systems, intro to CMake](#build-systems-intro-to-cmake)
+     * [How C   represents objects](#how-c-represents-objects)
+     * [Intro to templates](#intro-to-templates)
+     * [Advanced topics in templates](#advanced-topics-in-templates)
+     * [Operator overloads](#operator-overloads)
+     * [Lambdas, functional programming in C  ](#lambdas-functional-programming-in-c)
+     * [Discussion session: C   best practices](#discussion-session-c-best-practices)
+     * [Approaches to asynchrony](#approaches-to-asynchrony)
+     * [Personal topics: bring an interesting piece of code](#personal-topics-bring-an-interestin
+g-piece-of-code)
+     * [Discussion session: C   current affairs, politics and future direction](#discussion-sessi
+on-c-current-affairs-politics-and-future-direction)
+  * [Assignments](#assignments)
+     * [Assignment 1](#assignment-1)
+     * [Assignment 2](#assignment-2)
+        * [Specification](#specification)
+        * [Precise rubric](#precise-rubric)
+     * [Assignment 3](#assignment-3)
+        * [Challenge 1 [40\x]](#challenge-1-40)
+        * [Challenge 2 [45\x]](#challenge-2-45)
+        * [Challenge 3 [15\x]](#challenge-3-15)
+        * [Starter files](#starter-files)
+     * [Assignment 4](#assignment-4)
+  * [Project](#project)
+     * [Can it be in a language other than C  ?](#can-it-be-in-a-language-other-than-c)
+     * [What kind of thing could I have as a project?](#what-kind-of-thing-could-i-have-as-a-proj
+ect)
+  * [Grading criteria](#grading-criteria)
+     * [Assignments](#assignments-1)
+     * [Project rubric](#project-rubric)
+
 ## Topics
 
 An interesting aspect of the course topics is that they are flexible.
-It is viable and encouraged that students propose topics to be explored - we did this by creating a topic board.
-Not all topics were covered in the end, but those that were will be discussed here.
-The different versions of the topic board are available as an appendix.
+It is viable and encouraged that students propose topics to be explored - we did this by creating a topic board and choosing topics as we went along.
 
 Topics we covered:
 
@@ -67,14 +100,9 @@ It also pays to look at what `#include` does in general.
 ### Build systems, intro to CMake
 
 This topic was introduced via an idea board - asking students to contribute different build systems they've dealt with.
-The intention here was to paint an overall picture of different build systems, what they can be used for and what tradeoffs they make.
+The intention here is to paint an overall picture of different build systems, what they can be used for and what tradeoffs they make.
 
-Then, the idea was to zoom into practical usage of CMake on some small example projects.
-
-At the time I was blinded by variety and attempted to cover too many build systems, harming the overall ability of students to internalise the concepts.
-After discussing general build systems, it is important to transition to one specific build system on which you have prepared a good amount of material.
-
-As a mixture of future recommendation and an account of how I went back over what didn't go so well in the next session, here is how this should be done:
+Then, the idea is to zoom into practical usage of CMake on some small example projects.
 
 - Bring in 2-3 examples of working builds (see https://github.com/fhackett/cpsc490/tree/master/session4 for the ones I covered)
 - Before revealing how the working builds are set up, present the problem scenarios.
@@ -109,8 +137,6 @@ In student feedback it was noted that there could have been more take-home examp
 - using the `override` specifier for great profit
 - polymorphism can work with both pointers and references
 - object slicing (why you can't store a derived class in an array of their base class)
-
-Recommended assignment: 
 
 ### Intro to templates
 
@@ -164,7 +190,6 @@ Key points to discuss:
 
 The single hardest thing you can do in this topic is talk about iterators.
 They are very useful and important, but defining them is also incredibly difficult and time-consuming.
-We did a session on this which went all right but could have done with more context.
 
 ### Lambdas, functional programming in C++
 
@@ -176,6 +201,7 @@ Key points to discuss:
 - discuss meta-functions and revisit `std::algorithm`
 
 ### Discussion session: C++ best practices
+Project rubric
 
 This topic uses a different format to the others - we used a semi-official set of best practices guidelines published here: 
 
@@ -243,6 +269,7 @@ Some ideas for supplementary assignments:
 - Create a build system for a set of source files. Similar to the example builds from the CMake session, but without the CMakeLists. There would be one very basic build with source code that just uses the standard library, then some more difficult examples like: a build that requires a specific feature/version of C++; a build that requires linking to a third-party library. Assessment could be performed based on robustness - it is important to be able to identify cross-platform build issues.
 - Fixing template errors. Similar to assignment 4 but with more emphasis on common template issues, students would have the opportunity to witness and learn from a wide variety of mistakes in handling templates.
 - Reimplement std::vector. Either with templates or without, reimplementing this common data structure can be very educational. It puts into practice all of the constructor/assignment overloads and provides a good exercise in more general-purpose memory management. When involving templates, it also demonstrates things like placement-new if you require students to implement `emplace_back`.
+- Implement an atomic increment. If we represent an N-bit integer as `std::atomic<bool>[N]`, design and implement an algorithm that will increment that number. The catch is that the algorithm has to be concurrency-safe without using locks. This means you can only use atomic operations, so you have to think through all the possible interleavings of operations and design an algorithm that will work under all possible interleavings.
 
 ### Assignment 1
 
@@ -441,7 +468,7 @@ Assignments were fairly well-received overall, but if given as-is they cause som
 
 The late policy as given was -1/3 of the total mark per day, but it might also be worth trying a per-minute penalty since that makes being late by an hour less of a problem.
 
-### Final project rubric
+### Project rubric
 
 The spirit of the project is to gain experience writing unique code, dealing with unique problems and writing/talking about them.
 
