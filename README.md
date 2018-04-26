@@ -6,7 +6,17 @@ It has been run once so far, and this document covers initial intentions behind 
 
 For the sake of a common language, most of the course is taught in C++. This is not a limitation however, and comparisons may be drawn when relevant to other languages and specific systems.
 Since 3rd and 4th year UBC students will have encountered C++ before, some basic knowledge of the language is assumed.
+
 The course is composed of one project, a set of taught topics and a series of assignments.
+
+Course materials list:
+- https://godbolt.org/
+- http://en.cppreference.com/w/
+
+Interesting video links:
+- GoingNative 2013 C++ Seasoning: https://www.youtube.com/watch?v=W2tWOdzgXHA
+- CppCon 2015: Andrei Alexandrescu “std::allocator...”: https://www.youtube.com/watch?v=LIb3L4vKZ7U
+- CppCon 2014: Mike Acton "Data-Oriented Design and C++: https://www.youtube.com/watch?v=rX0ItVEVjHc
 
 ## Topics
 
@@ -28,6 +38,9 @@ Topics we covered:
 - Personal topics: bring an interesting piece of code
 - C++ current affairs, politics and future direction
 
+This section is organised as presentation notes - it is unlikely to be useful as handouts.
+Recommended future work is to produce more handouts that are targeted at students.
+
 ### Hello World dismantled
 
 This worked as the introductory session.
@@ -41,7 +54,7 @@ It also pays to look at what `#include` does in general.
 
 - What it a translation unit? Which translation unit is a header part of?
 
-- Touch on linking, in our case we ran into an interesting edge case where one of the programs was missing an `#include` but ran anyway due to a linker quirk.
+- Touch on linking, in our case we ran into an interesting edge case where one of the Hello World programs was missing an `#include` but ran anyway due to a linker quirk.
 
 - What is the compiler actually doing?
     - Parsing your code
@@ -63,7 +76,7 @@ After discussing general build systems, it is important to transition to one spe
 
 As a mixture of future recommendation and an account of how I went back over what didn't go so well in the next session, here is how this should be done:
 
-- Bring in 2-3 examples of working builds (see the folder for the ones I covered)
+- Bring in 2-3 examples of working builds (see https://github.com/fhackett/cpsc490/tree/master/session4 for the ones I covered)
 - Before revealing how the working builds are set up, present the problem scenarios.
 - Prompt students to suggest workarounds or methods that might work, discuss any suggestions.
 - Provide an overview of how CMake approaches the issues discussed (or how it fails to approach them in some cases)
@@ -173,7 +186,7 @@ What tradeoffs do the guidelines make?
 
 ### Approaches to asynchrony
 
-This session covered a lot of ground, functioning as more of a taster than necessarily one single learning process.
+This session covers a lot of ground, functioning as more of a taster than necessarily one single learning process.
 The goal was to provide a primer on approaches to asynchrony, both in terms of how C++ can deal with them and what they look like in general.
 
 Key points to discuss:
@@ -195,22 +208,41 @@ Possible follow-up exercise: implement an atomic binary increment on a binary nu
 This is a free-form session with no material, only a format.
 Students are instructed to bring a piece of code that is somehow interesting to them, and to be prepared to describe and discuss it.
 
-Topics that have been presented:
+Examples of topics that have been presented:
 - Blocks and coroutines in Ruby
 - Hacking Python's integers to make `3 == 2` become true
 - JavaScript's event loop, examples of how to write long-running code without hanging the browser
 - Scala syntax sugar (`fmap`)
 - Rust's borrow checker (it's just like move semantics)
+- Notes on how to perform asynchronous processing with PHP in a production system (similar issues to JavaScript)
 
 ### Discussion session: C++ current affairs, politics and future direction
 
 This session is part discussion part news-reading.
 It functions well as a closing session.
 
-I posted a set of articles for students to read ahead of time, then we discussed them.
-I also fielded questions raised on the consequences of "design by committee".
+Points of interest:
+- Discuss the linked articles
+- Highlight C++'s committee structure and its effect on the language
+- All the articles linked contain copious references to future work for C++, encourage questions on that topic
+
+Articles discussed:
+- http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0592r0.html
+- https://herbsutter.com/2017/07/15/trip-report-summer-iso-c-standards-meeting-toronto/
+- https://botondballo.wordpress.com/2017/11/20/trip-report-c-standards-meeting-in-albuquerque-november-2017/
+
+We also discussed the IBM trigraphs controversy: https://isocpp.org/files/papers/N4210.pdf
 
 ## Assignments
+
+Overall the assignments described here should form a decent starting point. During the course we noticed that the small number of assignments lead to difficulty spikes between them.
+
+A way to work around this could be to increase the number of assignments and make them a more significant part of the course load both in terms of time and grading.
+
+Some ideas for supplementary assignments:
+- Create a build system for a set of source files. Similar to the example builds from the CMake session, but without the CMakeLists. There would be one very basic build with source code that just uses the standard library, then some more difficult examples like: a build that requires a specific feature/version of C++; a build that requires linking to a third-party library. Assessment could be performed based on robustness - it is important to be able to identify cross-platform build issues.
+- Fixing template errors. Similar to assignment 4 but with more emphasis on common template issues, students would have the opportunity to witness and learn from a wide variety of mistakes in handling templates.
+- Reimplement std::vector. Either with templates or without, reimplementing this common data structure can be very educational. It puts into practice all of the constructor/assignment overloads and provides a good exercise in more general-purpose memory management. When involving templates, it also demonstrates things like placement-new if you require students to implement `emplace_back`.
 
 ### Assignment 1
 
@@ -227,7 +259,7 @@ Provide three code snippets that will fail to compile with one of the following 
 
 One should be able to paste your code into the Godbolt compiler and see that error (or something that means the same thing) in the output. One error per piece of code, and you should specify which error each code should produce.
 
-The markscheme is out of 3 marks, one per code snippet that matches the error your provide. Half marks for close but incorrect answers with working. [EDIT: thanks Peter] Only the first 3 answers will be marked, but further answers can be given for feedback.
+The markscheme is out of 3 marks, one per code snippet that matches the error your provide. Half marks for close but incorrect answers with working. Only the first 3 answers will be marked, but further answers can be given for feedback.
 
 For those that are not confident in their C++, start with the Hello World below and experiment with breaking it and reading the errors produced. There are some curveballs, but you should find enough to get 3/3 with some experimentation and minimal changes to the code.
 
@@ -244,7 +276,9 @@ return 0;
 
 ### Assignment 2
 
-Assignment 2 is designed to test topics surrounding CMake and linking by having students implement a synamic plugin system.
+Starter files: https://github.com/fhackett/cpsc490/tree/master/hw2_starter
+
+Assignment 2 is designed to test topics surrounding CMake and linking by having students implement a dynamic plugin system.
 
 The general concept is to make this kind of code work:
 
@@ -264,11 +298,11 @@ int main(){
 }
 ```
 
-I have provided a set of starter files with a working CMakeLists.txt. There are 6 test cases provided for you to work against, and 2 I have left out in order to get you thinking about what other tests might be reasonable. (don't worry, I made sure there are no absurd logical leaps to arrive at the missing steps).
+There will be a set of starter files with a working CMakeLists.txt. There are 6 test cases provided for students to work against, and 2 have left out in order to get students thinking about what other tests might be reasonable.
 
-The challenge is to edit talker_interface.hpp until it is correct. A set of test plugins have been provided to give you an idea of what you're working with. Not all of them are well-behaved.
+The challenge is to edit talker_interface.hpp until it is correct. A set of test plugins have been provided as examples of the kind of plugins that will be used as tests. Not all of them are well-behaved.
 
-Since this is very crashy C-like code I left all the tests as their own programs and files and stuck with C asserts. If the test program crashes, you probably have a problem. If it runs, you are probably ok. Let me know if you hit any bizarre edge cases.
+Since this is very crashy C-like code all the tests are their own programs and files and use C asserts. If the test program crashes, you probably have a problem. If it runs, you are probably (but not necessarily) ok.
 
 #### Specification
 
@@ -276,30 +310,17 @@ Since this is very crashy C-like code I left all the tests as their own programs
 - If the plugin being loaded does not exist or there is some other kind of loading error, talker_interface::load should throw a std::runtime_error (highly recommended: with the error message provided by dlopen).
 - The main program should not leak memory (defined as showing no definitely lost blocks when run under valgrind), unless a plugin leaks memory. That is out of the program's control by definition.
 - You are not required to catch pointers that are neither null nor correct. Functions that are present but were compiled with the wrong signature are also out of scope.
-- Within the context of the above, a rogue plugin should not be able to break other plugins. Watch for nulls. Take this spec very literally, and let me know if it's ambiguous and/or giving you trouble.
-- [BONUS] Hard but rewarding: nothing the plugin does, including crashing itself or passing non-null bad pointers around, should take out the main program in an unexpected way (but catching things like a plugin installing malware is out of scope - that's a full project if you want to try). Any plugin error should be reported as a std::runtime_error (again, optional: helpful error messages). To try this, you have to create a plugin sandbox similar to Google Chrome or Firefox (back when Flash Player and Java web apps were relevant).
-        Look up the POSIX fork() function: https://linux.die.net/man/3/fork
-        Look up the POSIX pipe() function: https://linux.die.net/man/7/pipe
-        If you want to attempt this madness, I'm happy to talk more about this.
-
- 
+- Within the context of the above, a rogue plugin should not be able to break other plugins. Watch for nulls. Take this spec very literally, and make sure to ask questions if it's ambiguous and/or giving you trouble.
 
 #### Precise rubric
 
 - [ 6 marks ] the code operates per spec
 - [ 2 marks ] no valgrind failures (definitely leaked), -1 for 1 or 2, -2 for more than 2
 - [ 2 marks ] to test if you can foresee bugs I didn't give you test cases for, 2 more test cases I will release after grading is complete
-- [ + 6% to your overall grade ] you were dedicated enough to make the bonus work, wow (this is for an unambiguously complete bonus solution, I may give part credit if you can get it mostly correct)
-
-#### Handin
-
-The start files are provided on the course Github in the folder "hw2_starter". As before, please submit your solution via private post. This time, please put the folder you want marked in an archive. You can files to a Piazza post with Insert->Insert file.
-
-The archive should compile at least on the grad machines, and ideally on my machine (not that you can test that). Let me know if you hit build issues - issues with that are not part of the assignment. If you are using Windows, you'll need a copy of Cygwin for POSIX functions like dlopen() to work. CMake should take care of the rest.
 
 ### Assignment 3
 
-The challenge this time is to complete some code I've written. There are simplifications in place to avoid an explosion in complexity surrounding iterators (that's its own assignment really), so keep in mind this is not :quite: what you'd see in fully idiomatic code.
+The challenge this time is to complete some code. There are simplifications in place to avoid an explosion in complexity surrounding iterators (that's its own assignment really), so keep in mind this is not :quite: what you'd see in fully idiomatic code.
 
 By the time you're done, something like this should work:
 
@@ -313,11 +334,11 @@ std::vector<int> foo(std::vector<int> a, std::vector<int> b){
 
 The effect is that instead of doing each piece of work one by one, some templating tricks make the entire operation this function performs run in one piece, going directly from (a,b) to the result with no significant intermediates (less well-tuned implementations might actually generate all the partial arrays, how inefficient!). The intermediates are in fact special objects representing the deferred computation that should be performed. make_vector acts as a request to actually perform the computation - though as you will see from inspecting its implementation, it is ignorant of what exactly the computation entails.
 
-I've organised this assignment into 3 challenges - I imagine you'd want to try them in order. Let me know if you have any questions - as usual, C++ will find a way to do something confusing and/or that I may not have explained yet.
+The assignment is organised into 3 challenges. Make sure to ask questions - as usual, C++ will find a way to do something confusing and/or that I may not have explained yet.
 
 #### Challenge 1 [40%]
 
-I've already made addition work in the code provided. Try adapting this to multiplication so the example above would run.
+Addition works in the code provided. Try adapting this to multiplication so the example above would run.
 
 #### Challenge 2 [45%]
 
@@ -338,9 +359,7 @@ should work the same as the first example, but with the elements multiplied toge
 
 #### Challenge 3 [15%]
 
-Like I showed in class, use SFINAE to make sure no-one can "misuse" these new operators we defined.
-
- 
+Use SFINAE to make sure no-one can "misuse" these new operators we defined.
 
 This example should fail with an error like "invalid operands" instead of actually trying (and also failing) to instantiate the assignment code:
 
@@ -351,9 +370,7 @@ X{}+X{};
 
 As a hint for this one: try to think about what is unique to the proxy types you defined - how can you make sure your template parameters look like that? Do they at least have the write types and methods?
 
-If you're still stuck, don't be afraid to ask me - there's a few different ways to do SFINAE depending on the situation and it can be a bit daunting at first.
-
- 
+There are a few different ways to do SFINAE depending on the situation and it can be a bit daunting at first, so don't be discouraged if your first try doesn't work.
 
 Here's a mini-example where the struct SFINAE will only compile if you pass it a type with a member T:
 
@@ -370,13 +387,12 @@ using TryIt = SFINAE<Test>;
 //fails
 // using TryIt2 = SFINAE<BadTest>;
 ```
- 
 
 #### Starter files
 
 Available here: https://github.com/fhackett/cpsc490/tree/master/hw3_starter
 
-You should edit proxy.hpp. The tests are there for your benefit - testing this stuff comprehensively is hard so I'll look at what you've actually written to determine your grade. That said, if the tests pass then your work is probably good. Let me know if you want more tests, and if so on what part(s).
+You should edit proxy.hpp. The tests are there for your benefit - since the rubric includes compile errors your code will be tested onits own merits rather than against a test suite. That said, if the tests pass then your work is probably good. If something is ambigous feel free to request extra tests on a particular area.
 
 ### Assignment 4
 
@@ -384,12 +400,35 @@ Assignment 4 covers some everyday template use and some fun with classes.
 
 There are two parts:
 
-- to_fix: I wrote a (bad) object-oriented "graphics" library. It has bugs due to C++ OO gotchas. Find them, fix them and explain your fixes. 1 mark per bug, 1 mark per fix, 1 mark per explanation, out of 9. This should give you some practice with virtual dispatch and inheritance.
+- to_fix: someone wrote a (bad) object-oriented "graphics" library. It has bugs due to C++ OO gotchas. Find them, fix them and explain your fixes. 1 mark per bug, 1 mark per fix, 1 mark per explanation, out of 9. This should give you some practice with virtual dispatch and inheritance.
 - to_complete: implement a clone of unique_ptr following the API on cppreference, except where annotated otherwise. Out of 10 marks, score based on feature completion and bug-freedom. This will involve some practice in common use of templates, as well as some hands-on experience with the rule of 5.
 
-[Link to the starter code](https://github.com/fhackett/cpsc490/tree/master/hw4_starter)
+Starter code: https://github.com/fhackett/cpsc490/tree/master/hw4_starter
 
 There are no tests, but you are encouraged to write your own. Catch or anything else is acceptable. There is also no build file - writing one may be worthwhile, but is not required. You could refer to previous examples of CMakeLists.txt for inspiration.
+
+## Project
+
+A lot of the project is described by its grading rubric. The project is very free-form and provides a platform for students to investigate topics they are interested by trying to build something.
+
+One thing that is not on the rubric: it is important that students present a written proposal for their topic of choice including setting goals for their milestones. This helps people get an idea together and sets an expectation for what students will need to do / talk about at their first milestone presentation.
+
+Here are some notes on how the project went in the form of an FAQ.
+
+### Can it be in a language other than C++?
+
+Possibly, but only if a good rationale is given. Embedded scripting languages for example can be a very useful tool if used correctly.
+
+
+### What kind of thing could I have as a project?
+
+Here is a series of examples from previous iterations of the class:
+- Foodie, an esoteric scripting language which tries to follow the semantics of cooking recipes
+- A Minecraft mod (written in C++ despite Minecraft running on the JVM) that builds and analyses a dataflow graph between machines in the game
+- An investigation into the relative benefits of tiling vs. quadtree data structures in a gaming context
+- Writing a neural net and training it to play Mario Kart (interesting screen capture challenge, as well as a lot of numeric C++)
+- A clone of BASH featuring some support for process management (requires a lot of reading about POSIX)
+- A networked multiplayer game with an unusual strategy for resolving disagreements between game clients (written using the Godot engine, makes use of Godot's embedded scripting language for some game logic)
 
 ## Grading criteria
 
@@ -398,18 +437,15 @@ The course had a mix of assignments and project work.
 
 ### Assignments
 
-After having run the course, I recommend rebalancing the grading scheme so that assignments are weighted more heavily, something like 50/50.
-This should better reflect/reward the learning experience.
+Assignments were fairly well-received overall, but if given as-is they cause some problematic difficulty spikes. See recommendations from the assignments section on possible future work.
 
-There also needs to be a precise late penalty system, since sometimes students need to assess the tradeoffs if working on different things when they cannot complete everything.
-
-The late policy as given was -1/3 of the total mark per day, but given facilitator availability and conversations with students a more gradual per-minute late penalty may have encouraged late submissions as opposed to students just giving up.
+The late policy as given was -1/3 of the total mark per day, but it might also be worth trying a per-minute penalty since that makes being late by an hour less of a problem.
 
 ### Final project rubric
 
-The spirit of the project is for you to gain experience writing unique code, dealing with unique problems and writing/talking about them.
+The spirit of the project is to gain experience writing unique code, dealing with unique problems and writing/talking about them.
 
-There will be monthly milestone presentations where you will present and discuss the state of your project. These presentations will be graded. This course spans 3 and a bit months, so there will be 3 milestones, one at the end of each month. The final milestone will also be the final presentation.
+There will be monthly milestone presentations where students will present and discuss the state of their project. These presentations will be graded. This course spans 3 and a bit months, so there will be 3 milestones, one at the end of each month. The final milestone will also be the final presentation.
 
 The grading scheme for each milestone is as follows (each milestone will be worth 1/3 of the full project, and be out of 10):
 
