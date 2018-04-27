@@ -198,7 +198,6 @@ Key points to discuss:
 - discuss meta-functions and revisit `std::algorithm`
 
 ### Discussion session: C++ best practices
-Project rubric
 
 This topic uses a different format to the others - we used a semi-official set of best practices guidelines published here: 
 
