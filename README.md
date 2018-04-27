@@ -79,7 +79,7 @@ Students were encouraged to bring a version of the classic Hello World program i
 Key points to discuss:
 
 - What each part of the program does - there are at least 2 ways to print to the console, `std::cout` and `printf`.
-You can highlight what the `<<` syntax actuall does, maybe question how they achieve the effect of printing to the console. (does one of the students have a systems background?)
+You can highlight what the `<<` syntax actually does, maybe question how they achieve the effect of printing to the console. (does one of the students have a systems background?)
 It also pays to look at what `#include` does in general.
 
 - What it a translation unit? Which translation unit is a header part of?
