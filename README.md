@@ -173,7 +173,7 @@ Here are some tricks that have come into usage:
 When designing a class, you can provide a specialised implementation of almost any operation that is possible on a class.
 Some of these come pre-generated, others default to not being available.
 
-See this table for reference: 
+See this table for reference: http://en.cppreference.com/w/cpp/language/operators
 
 Key points to discuss:
 - Constructors, destructors, copying, moving ... what do they do?
