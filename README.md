@@ -223,8 +223,6 @@ Key points to discuss:
 
 Questions to discuss: where are the interfaces here?
 
-Possible follow-up exercise: implement an atomic binary increment on a binary number represented as a `std::vector<std::atomic<bool>>`
-
 ### Personal topics: bring an interesting piece of code
 
 This is a free-form session with no material, only a format.
@@ -290,10 +288,10 @@ For those that are not confident in their C++, start with the Hello World below 
 #include <iostream>
 
 int main(){
-int i = 2;
-std::cout << "Hello World!\n";
-std::cout << i << "\n";
-return 0;
+    int i = 2;
+    std::cout << "Hello World!\n";
+    std::cout << i << "\n";
+    return 0;
 }
 ```
 
